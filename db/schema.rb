@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_211149) do
   end
 
   create_table "attempts", force: :cascade do |t|
+    t.string "status", default: "Not Accepted"
     t.integer "user_id"
     t.integer "challenge_id"
     t.datetime "created_at", null: false

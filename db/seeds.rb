@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Achievement.destroy_all
+Relationship.destroy_all
+Challenge.destroy_all
+User.all 
+UserAchievement.destroy_all
+Attempt.destroy_all
 a1 = Achievement.create(
     name: "First Base", 
     description: "Successfully created your Challenge Quest Profile")
@@ -79,42 +85,42 @@ cat = User.create(
 
 try1 = Attempt.create(
     user_id: dylan.id,
-    challenge_id: c5
+    challenge_id: c5.id
 )
 
 try2 = Attempt.create(
     user_id: dylan.id,
-    challenge_id: c3
+    challenge_id: c3.id
 )
 
 try3 = Attempt.create(
     user_id: zach.id,
-    challenge_id: c5
+    challenge_id: c5.id
 )
 
 try4 = Attempt.create(
     user_id: zach.id,
-    challenge_id: c2
+    challenge_id: c2.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: dylan.id, 
-    achievement_id: a2
+    achievement_id: a2.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: dylan.id, 
-    achievement_id: a4
+    achievement_id: a4.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: zach.id,
-    achievement_id: a1
+    achievement_id: a1.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: zach.id,
-    achievement_id: a3
+    achievement_id: a3.id
 )
 
 Relationship.create(
