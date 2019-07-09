@@ -1,4 +1,21 @@
 <h1>Your Challenge Quest Profile</h1>
+<br/>
+<img src= "<%=@user.image%>">
+
+<h2>Username: </h2>
+<h3><%=@user.username%></h3>
+
+<h2>Bio: </h2>
+<h3><%=@user.bio%></h3>
+
+
+
+<h2>Your Friends</h2>
+<ul>
+  <% @user.friends.each do |friend| %>
+  <li><%= link_to(friend.username, user_path(friend)) %></li>
+  <% end %>  
+</ul>
 
 <%= link_to("Edit Your Profile", edit_user_path)%><br/>
 <%= link_to("List of All Questers", users_path)%><br/>
