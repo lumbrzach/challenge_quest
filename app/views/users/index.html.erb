@@ -1,4 +1,20 @@
 <h1>List of All Active Questers</h1>
 
+<% @users.each do |user| %>
+  <div class="user">
+    <p>
+      <strong><%=user.username %></strong>
+      <%= link_to "Add Friend", relationships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+
+<ul>
+    <%@users.each do |user|%>
+        <li><%=link_to(user.username, user_path(user))%>    <%= link_to "Add Friend", relationships_path(:friend_id => user), :method => :post %></li>
+    <%end%>
+</ul>
+
 <%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("Challenge Quest Homepage", applications_path)%><br/>
+<%= link_to("Challenge Quest Homepage", "/")%><br/>
