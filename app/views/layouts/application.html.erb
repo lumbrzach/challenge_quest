@@ -17,7 +17,7 @@
     Home
   </a>
   <a class="item">
-    Messages
+    Achievements
   </a>
   <a class="item">
     Friends
@@ -27,7 +27,8 @@
   </a>
   <div class="right menu">
     <a class="ui item">
-      Logout
+      <%= link_to "Logout", logout_path, method: :delete %>
+      <div class="clear"></div>
     </a>
   </div>
 </div>
