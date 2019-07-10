@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-    before_action :authenticate!, except: [:index, :show]
+    before_action :authenticate!
 
     def index
         @challenges = Challenge.all
@@ -29,7 +29,7 @@ class ChallengesController < ApplicationController
         else
             flash[:info] = "You cannot edit another user's challenge!"
         end
-            redirect_to challenge_path(@challenge)
+        redirect_to challenge_path(@challenge)
             
     end
 
