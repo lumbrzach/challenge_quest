@@ -61,7 +61,7 @@ c5 = Challenge.create(
 dylan = User.create(
     name: "Dylan Harris",
     username: "DH_05",
-    password_digest: "Nunu22",
+    password: "Nunu22",
     bio: "Hello! My name is Dylan and I hope you're ready to take on my challenges",
     image: "https://uploads-learn.s3.amazonaws.com/uploads/identities/learn_account/avatar/cdc72733-3575-4310-87fc-8d9bc994f539/avatar.jpeg"
 )
@@ -69,7 +69,7 @@ dylan = User.create(
 zach = User.create(
     name: "Zach Parker",
     username: "lumbrzach",
-    password_digest: "ZachAttack",
+    password: "ZachAttack",
     bio: "Prepare for my challenges!",
     image: "https://avatars.githubusercontent.com/u/50035946"
 )
