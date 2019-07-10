@@ -9,4 +9,11 @@ class RelationshipsController < ApplicationController
           redirect_to users_path
         end
       end
+
+      def destroy
+        @relationship= current_user.relationships.find(params[:id])
+        @relationship.destroy
+        flash[:notice] = "Removed friendship."
+        redirect_to current_user
+      end
 end
