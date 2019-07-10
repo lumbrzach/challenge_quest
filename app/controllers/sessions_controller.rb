@@ -8,13 +8,15 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           flash[:info] = "Login Successful!"
-          redirect_to challenges_path
+          redirect_to user_path(@user)
         else
           @error = "No such username or wrong password."
           render :new
         end
       end
 
-    def destroy
-    end
+      def destroy 
+        session[:user_id] = nil
+        redirect_to '/' :notice => "You Have Been Logged Out" 
+      end
 end
