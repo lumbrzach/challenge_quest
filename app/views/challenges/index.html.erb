@@ -1,11 +1,22 @@
-<h1>List of All Challenges</h1>
+<div id="outsidecontainer">
 
-<ul>
+<div id="challenges">
+    <center>
+       <div id="title"> 
+        List of All Challenges
+       </div>
+    
+
+    
     <%@challenges.each do |challenge|%>
-        <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+        <p><%=link_to(challenge.name, challenge_path(challenge))%></p>
     <%end%>
-</ul>
+
+    
 
 <%= link_to("Create a New Challenge", new_challenge_path)%><br/>
 <%= link_to("Challenge Quest Profiles", users_path)%><br/>
-<%= link_to("Challenge Quest Homepage", "/")%><br/>
+</div>
+</center>
+
+</div>

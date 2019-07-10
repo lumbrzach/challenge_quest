@@ -11,6 +11,30 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%if current_user%>
+   <div class="ui secondary pointing menu">
+  <a class="active item">
+    Home
+  </a>
+  <a class="item">
+    Messages
+  </a>
+  <a class="item">
+    Friends
+  </a>
+  <a class="item">
+    <%=current_user.username%>
+  </a>
+  <div class="right menu">
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="ui segment">
+  <p></p>
+  <%end%>
+</div>
+<%= yield %>
   </body>
 </html>

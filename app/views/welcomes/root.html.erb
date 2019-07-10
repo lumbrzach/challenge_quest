@@ -1,5 +1,34 @@
-<h1>Welcome to Challenge Quest</h1>
+<div id="title">
+  <center>
+    <h1>Welcome to Challenge Quest</h1>
+  </center>
+</div>
 
-<%= link_to("Login", '/login')%><br/>
-<%= link_to("List of Available Challenges", challenges_path)%><br/>
-<%= link_to("List of Fellow Questers", users_path)%><br/>
+<div id="outsidecontainer">
+  <center>
+    <div id="logo">
+      <img src= "https://files.slack.com/files-pri/T02MD9XTF-FKXHPQ1H9/logo_no_text.png" width= "auto" height= "500px" alt= "Logo">
+    </div>
+      <% if @error %>
+        <p style="color: red;"><%= @error %></p>
+      <% end %>
+
+<div id="form_tag">
+  <%= form_tag do %>
+
+    <%= label_tag("Username: ") %>
+    <p><%= text_field_tag(:username) %></p>
+    <%= label_tag("Password: ") %>
+    <p><%= password_field_tag(:password) %></p>
+    <%= submit_tag("Login") %>
+<% end %>
+</div>
+<div id="or">
+  <h4> Or </h4>
+</div>
+
+<div id="create_profile">
+  <h3><%=link_to "Create Profile", new_user_path%></h3>
+</div>
+  </center>
+</div>
