@@ -11,4 +11,25 @@ class User < ApplicationRecord
     has_secure_password
 
     
+    def accept_challenge(challenge)
+        @attempt = Attempt.create(user_id: self.id, challenge_id: challenge.id, status: "Accepted")
+    end
+
+    def complete_challenge(attempt)
+        @attempt = Attempt.find(attempt.id)
+        @attempt.update(status: "Completed")
+    end
+    
+    def accepted_challenges
+        x = self.attempts.select {|attempt| attempt.status == "Accepted"}
+        y = x.map {|a| a.challenge}
+        y
+    end
+
+    def completed_challenges
+        x = self.attempts.select {|attempt| attempt.status == "Completed"}
+        y = x.map {|a| a.challenge}
+        y
+    end
+
 end
