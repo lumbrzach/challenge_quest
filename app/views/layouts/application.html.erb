@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatironRailsProject</title>
+    <title>Challenge Quest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -31,10 +31,10 @@
     </a>
   </div>
 </div>
-<div class="ui segment">
-  <p></p>
   <%end%>
+<div class="ui segment">
+  <p style="color: red;"><%= flash[:info] %></p>
+  <%= yield %>
 </div>
-<%= yield %>
   </body>
 </html>
