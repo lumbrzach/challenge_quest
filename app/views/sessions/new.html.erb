@@ -1,13 +1,27 @@
-<h1>Login Page</h1>
+<div id="title">
+  <center>
+    <h1>Welcome to Challenge Quest!</h1>
+  </center>
+</div>
 
-<% if @error %>
-  <p style="color: red;"><%= @error %></p>
-<% end %>
+<div id="outsidecontainer">
+  <center>
+    <div id="logo">
+      <img src= "https://files.slack.com/files-pri/T02MD9XTF-FKXHPQ1H9/logo_no_text.png" width= "auto" height= "500px" alt= "Logo">
+    </div>
+      <% if @error %>
+        <p style="color: red;"><%= @error %></p>
+      <% end %>
 
-<%= form_tag do %>
-  <%= label_tag("Username: ") %>
-  <%= text_field_tag(:username) %>
-  <%= label_tag("Password: ") %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag("Login") %>
+<div id="form_tag">
+  <%= form_tag do %>
+
+    <%= label_tag("Username: ") %>
+    <p><%= text_field_tag(:username) %></p>
+    <%= label_tag("Password: ") %>
+    <p><%= password_field_tag(:password) %></p>
+    <%= submit_tag("Login") %>
 <% end %>
+</div>
+  </center>
+</div>
