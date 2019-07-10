@@ -24,12 +24,12 @@ class ChallengesController < ApplicationController
 
     def edit
         @challenge = Challenge.find(params[:id])
-        if @challenge.users.include?(current_user)
-            render :edit
-        else
-            flash[:info] = "You cannot edit another user's challenge!"
-        end
-        redirect_to challenge_path(@challenge)
+        # if @challenge.users.include?(current_user)
+        #     render :edit
+        # else
+        #     flash[:info] = "You cannot edit another user's challenge!"
+        # end
+        # redirect_to challenge_path(@challenge)
             
     end
 

@@ -11,5 +11,6 @@
 
 
 <%= link_to("Accept Challenge", attempts_path(:challenge_id => @challenge), :method => :post) %><br/>
+<%= link_to("Mark Challenge as Complete", attempt_path(current_user.attempts.find_by(challenge_id: @challenge.id)), :method => :patch) %><br/>
 <%= link_to("List of All Challenges", challenges_path)%><br/>
 <%= link_to("Profile Page", user_path(current_user))%><br/>

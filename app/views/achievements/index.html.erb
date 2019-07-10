@@ -1,0 +1,11 @@
+<h1>List of All Achievements</h1>
+
+
+<ul>
+    <%@achievements.each do |achievement|%>
+        <li><strong><%=link_to(achievement.name, achievement_path(achievement))%></strong></li>
+    <%end%>
+</ul>
+
+<%= link_to("List of All Challenges", challenges_path)%><br/>
+<%= link_to("Your Profile", user_path(current_user))%><br/>
