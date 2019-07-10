@@ -10,7 +10,6 @@
 <h3><%=@challenge.description%></h3>
 
 
-
-<%= link_to("Edit Challenge", edit_challenge_path)%><br/>
+<%= link_to("Accept Challenge", attempts_path(:challenge_id => @challenge), :method => :post) %><br/>
 <%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("Challenge Quest Homepage", "/")%><br/>
+<%= link_to("Profile Page", user_path(current_user))%><br/>
