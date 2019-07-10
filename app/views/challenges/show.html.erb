@@ -1,5 +1,16 @@
 <h1>Individual Challenge Page</h1>
 
-<%= link_to("Edit Your Challenge", edit_challenge_path)%><br/>
+<h2>Name: </h2>
+<h3><%=@challenge.name%></h3>
+
+<h2>Category: </h2>
+<h3><%=@challenge.category%></h3>
+
+<h2>Description: </h2>
+<h3><%=@challenge.description%></h3>
+
+
+
+<%= link_to("Edit Challenge", edit_challenge_path)%><br/>
 <%= link_to("List of All Challenges", challenges_path)%><br/>
 <%= link_to("Challenge Quest Homepage", "/")%><br/>

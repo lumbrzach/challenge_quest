@@ -8,6 +8,20 @@
 <h2>Bio: </h2>
 <h3><%=@user.bio%></h3>
 
+<h2>Attempted Challenges: </h2>
+<ul>
+    <%@user.accepted_challenges.each do |challenge|%>
+        <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+    <%end%>
+</ul>
+
+<h2>Completed Challenges: </h2>
+<ul>
+    <%@user.completed_challenges.each do |challenge|%>
+        <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+    <%end%>
+</ul>
+
 
 
 <h2>Your Friends</h2>
