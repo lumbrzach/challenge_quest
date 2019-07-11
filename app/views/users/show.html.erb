@@ -5,6 +5,7 @@
 <div id="edit">
     <%= button_to "Add Friend", relationships_path(:friend_id => @user), :method => :post %>
 </div>
+
 <div id="ProfilePicture">
   <img src= "<%=@user.image%>" width="auto" height="400px">
 </div>
@@ -97,15 +98,14 @@
   <ul>
     <%@user.inverse_friends.each do |user|%>
       <p>
-        <li><%=link_to(user.username, user_path(user))%></li>
+        <%=link_to(user.username, user_path(user))%>
       </p>
     <%end%>  
   </ul>
 </div>
 
-<br/>
-<br/>
+
 <div id="edit">
-  <%= button_to("Edit Profile", edit_user_path, :method => :get)%></p>
+  <%= button_to("Edit Profile", edit_user_path, :method => :get)%>
 </div>
 
