@@ -34,7 +34,7 @@
           <% if challenge.attempts.find_by(status: "Completed") == nil%>
             <%nil%>
         <%else%>
-            <li><%=link_to(challenge.name, challenge_path(challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %>)</li>
+            <%=link_to(challenge.name, challenge_path(challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %>)
         <%end%>
         </p>
     <%end%>
@@ -49,7 +49,7 @@
   <ul>
       <%@user.completed_challenges.each do |challenge|%>
           <p>
-            <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+            <%=link_to(challenge.name, challenge_path(challenge))%>
           </p>
     <%end%>
   </ul>
@@ -64,7 +64,7 @@
   <ul>
     <%@user.completed_achievements.each do |achievement|%>
       <p>
-        <li><%=link_to(achievement.name, achievement_path(achievement))%></li>
+        <%=link_to(achievement.name, achievement_path(achievement))%>
       </p>
     <%end%>  
   </ul>

@@ -1,22 +1,23 @@
-<div id="outsidecontainer">
-
-<div id="challenges">
+    
     <center>
-       <div id="title"> 
-        List of All Challenges
-       </div>
-    
+     <h1>List of All Challenges</h2>
+    </center>
 
     
-    <%@challenges.each do |challenge|%>
-        <p><%=link_to(challenge.name, challenge_path(challenge))%></p>
-    <%end%>
+    <center>
+        <div id="challenges">
+        <%@challenges.each do |challenge|%>
+            <p><%=link_to(challenge.name, challenge_path(challenge))%></p>
+        <%end%>
+        </div>
+    </center>
 
     
-
-<%= link_to("Create a New Challenge", new_challenge_path)%><br/>
-<%= link_to("Challenge Quest Profiles", users_path)%><br/>
+<center>
+    <div id="links">
+        <p><%= button_to("Create a New Challenge", new_challenge_path, method: :get)%></p>
+    
 </div>
 </center>
 
-</div>
+
