@@ -3,15 +3,20 @@
 <img src= "<%=@user.image%>" width="auto" height="200px">
 
 <h2>Username: </h2>
-<h3><%=@user.username%></h3>
+<p><%=@user.username%></p>
 
 <h2>Bio: </h2>
-<h3><%=@user.bio%></h3>
+<p><%=@user.bio%></p>
 
 <h2>Attempted Challenges: </h2>
 <ul>
-    <%@user.accepted_challenges.each do |challenge|%>
-        <li><%=link_to(challenge.name, challenge_path(challenge))%><br/><%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %></li>
+    <%@user.accepted_challenges.uniq.each do |challenge|%>
+
+        <% if challenge.attempts.find_by(status: "Completed") == nil%>
+            <%nil%>
+        <%else%>
+            <li><%=link_to(challenge.name, challenge_path(challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %>)</li>
+        <%end%>
     <%end%>
 </ul>
 
@@ -19,6 +24,13 @@
 <ul>
     <%@user.completed_challenges.each do |challenge|%>
         <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+    <%end%>
+</ul>
+
+<h2>Completed Achievements:</h2>
+<ul>
+    <%@user.completed_achievements.each do |achievement|%>
+        <li><%=link_to(achievement.name, achievement_path(achievement))%></li>
     <%end%>
 </ul>
 
@@ -35,7 +47,6 @@
   <% end %>  
 </ul>
 
+
 <%= link_to("Edit Profile", edit_user_path)%><br/>
-<%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("List of All Achievements", achievements_path)%><br/>
-<%= link_to("List of All Questers", users_path)%><br/>
+
