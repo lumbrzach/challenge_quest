@@ -13,21 +13,21 @@
   <body>
   <%if current_user%>
    <div class="ui secondary pointing menu">
-  <a class="active item">
-    Home
+  <a class=" item">
+    <%=link_to("Challenges", challenges_path, class: "item")%>
   </a>
   <a class="item">
-    Achievements
+    <%=link_to("Achievements", achievements_path, class: "item")%>
   </a>
   <a class="item">
-    Friends
+    <%=link_to("Questers", users_path, class: "item")%>
   </a>
   <a class="item">
-    <%=current_user.username%>
+  <%=link_to(current_user.username, user_path(current_user), class: "item")%>
   </a>
   <div class="right menu">
     <a class="ui item">
-      <%= link_to "Logout", logout_path, method: :delete %>
+      <%= link_to("Logout", logout_path, class: "item") %>
       <div class="clear"></div>
     </a>
   </div>

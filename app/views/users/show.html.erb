@@ -1,6 +1,6 @@
 <h1><%=@user.name.titleize%>'s Challenge Quest Profile</h1>
 <br/>
-<img src= "<%=@user.image%>">
+<img src= "<%=@user.image%>" width="auto" height="200px">
 
 <h2>Username: </h2>
 <h3><%=@user.username%></h3>
@@ -29,6 +29,7 @@
   <% @user.relationships.each do |relationship| %>
   <li>
     <%= link_to(relationship.friend.username, user_path(relationship.friend.id)) %><br/>
+    
     (<%= link_to "Remove Friend", relationship, :method => :delete %>)
   </li>
   <% end %>  
