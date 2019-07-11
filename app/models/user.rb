@@ -30,11 +30,27 @@ class User < ApplicationRecord
         y
     end
 
+    def display_accepted_challenges_without_duplicates
+        x = []
+        self.accepted_challenges.each do |challenge|
+            y = challenge.attempts.find_by(user_id: self.id)
+            if y.status == "Completed"
+                nil
+            else
+                x << y
+            end
+        end
+        x
+    end
+
+
     def completed_challenges
         x = self.attempts.select {|attempt| attempt.status == "Completed"}
         y = x.map {|a| a.challenge}
         y
     end
+
+
 
     def completed_achievements
         # @achievement_array = []

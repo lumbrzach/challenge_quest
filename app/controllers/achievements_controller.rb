@@ -1,4 +1,6 @@
 class AchievementsController < ApplicationController
+    before_action :authenticate!
+    
     def index
         @achievements = Achievement.all
     end

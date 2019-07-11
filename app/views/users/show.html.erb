@@ -2,6 +2,9 @@
   <%=@user.name.titleize%>'s Challenge Quest Profile
 </div>
 
+<div id="edit">
+    <%= button_to "Add Friend", relationships_path(:friend_id => @user), :method => :post %>
+</div>
 <div id="ProfilePicture">
   <img src= "<%=@user.image%>" width="auto" height="400px">
 </div>
@@ -29,13 +32,9 @@
 
 <div id="content_special">
 <ul>
-    <%@user.accepted_challenges.each do |challenge|%>
+    <%@user.display_accepted_challenges_without_duplicates.each do |attempt|%>
         <p>
-          <% if challenge.attempts.find_by(status: "Completed") == nil%>
-            <%nil%>
-        <%else%>
-            <%=link_to(challenge.name, challenge_path(challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %>)
-        <%end%>
+            <%=link_to(attempt.challenge.name, challenge_path(attempt.challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: attempt.challenge.id)), :method => :patch) %>)
         </p>
     <%end%>
 </ul>
@@ -69,12 +68,10 @@
     <%end%>  
   </ul>
 </div>
-<div id="achievements">
-  <%= button_to("List of All Achievements", achievements_path, :method => :get)%>
-</div>
+
 
 <div id="header">
-  Friends:
+  Friends of <%=@user.name.titleize%>:
 </div>
 
 <div id="content_special">
@@ -90,11 +87,24 @@
   <% end %>
   </ul>
 </div>
-<div id="achievements">
-      <%= button_to("List of All Questers", users_path, :method => :get)%>
-    </div>
 
 
+<div id="header">
+  Questers Who Have Befriended <%=@user.name.titleize%>:
+</div>
+
+<div id="content_special">
+  <ul>
+    <%@user.inverse_friends.each do |user|%>
+      <p>
+        <li><%=link_to(user.username, user_path(user))%></li>
+      </p>
+    <%end%>  
+  </ul>
+</div>
+
+<br/>
+<br/>
 <div id="edit">
   <%= button_to("Edit Profile", edit_user_path, :method => :get)%></p>
 </div>
