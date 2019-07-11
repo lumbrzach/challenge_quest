@@ -10,6 +10,7 @@
   Username: 
 </div>
 
+
 <div id="content">
   <%=@user.username%>
 </div>
@@ -30,7 +31,11 @@
 <ul>
     <%@user.accepted_challenges.each do |challenge|%>
         <p>
-          <li><%=link_to(challenge.name, challenge_path(challenge))%><br/><%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %></li>
+          <% if challenge.attempts.find_by(status: "Completed") == nil%>
+            <%nil%>
+        <%else%>
+            <li><%=link_to(challenge.name, challenge_path(challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %>)</li>
+        <%end%>
         </p>
     <%end%>
 </ul>
@@ -50,13 +55,18 @@
   </ul>
 </div>
 
+
 <div id="header">
   Completed Achievements:
 </div>
 
 <div id="content_special">
   <ul>
-    
+    <%@user.completed_achievements.each do |achievement|%>
+      <p>
+        <li><%=link_to(achievement.name, achievement_path(achievement))%></li>
+      </p>
+    <%end%>  
   </ul>
 </div>
 <div id="achievements">
@@ -84,6 +94,8 @@
       <%= button_to("List of All Questers", users_path, :method => :get)%>
     </div>
 
+
 <div id="edit">
   <%= button_to("Edit Profile", edit_user_path, :method => :get)%></p>
 </div>
+

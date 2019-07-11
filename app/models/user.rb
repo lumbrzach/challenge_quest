@@ -36,4 +36,33 @@ class User < ApplicationRecord
         y
     end
 
+    def completed_achievements
+        # @achievement_array = []
+        if self.completed_challenges.count == 15
+            user_achievement = UserAchievement.create(user_id: self.id, achievement_id: 5)
+            # @achievement_array << user_achievement
+        elsif
+            self.completed_challenges.count == 10
+            user_achievement = UserAchievement.create(user_id: self.id, achievement_id: 4)
+            # @achievement_array << user_achievement
+        elsif
+            self.completed_challenges.count == 5
+            user_achievement = UserAchievement.create(user_id: self.id, achievement_id: 3)
+            # @achievement_array << user_achievement
+        elsif
+            self.completed_challenges.count == 1
+            user_achievement = UserAchievement.create(user_id: self.id, achievement_id: 2)
+            # @achievement_array << user_achievement
+        else
+            self
+            user_achievement = UserAchievement.create(user_id: self.id, achievement_id: 1)
+            # @achievement_array << user_achievement
+        end
+        # @achievement_array << self.achievements
+        # @achievement_array.uniq
+        @achievement_array = self.achievements.uniq
+        @achievement_array
+        
+    end
+
 end

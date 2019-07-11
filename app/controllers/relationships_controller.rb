@@ -3,13 +3,18 @@ class RelationshipsController < ApplicationController
         x = current_user.relationships.find_by(friend_id: params[:friend_id])
         if x == nil
             @relationship = current_user.relationships.build(:friend_id => params[:friend_id])
+            if @relationship.user_id != current_user.id
                 if @relationship.save
                     flash[:info] = "Added Friend."
                     redirect_to user_path(current_user)
                 else
-                    flash[:info] = "Unable to Add Friend."
+                    flash[:info] = "Unable to add Friend."
                     redirect_to users_path
                 end
+            else
+                flash[:info] = "You can't add yourself as your own friend, maybe look into some self-care?"
+                redirect_to users_path
+            end
         else
             flash[:info] = "You are already Friends!"
             redirect_to users_path
