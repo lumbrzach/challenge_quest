@@ -36,6 +36,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        @user = User.find(current_user.id)
+        @user.destroy
+        flash[:info] = "Your profile has been deleted"
+        redirect_to '/'
+    end
+
     private 
 
     def user_params
