@@ -34,7 +34,7 @@
 <ul>
     <%@user.display_accepted_challenges_without_duplicates.each do |attempt|%>
         <p>
-            <li><%=link_to(attempt.challenge.name, challenge_path(attempt.challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: attempt.challenge.id)), :method => :patch) %>)</li>
+            <%=link_to(attempt.challenge.name, challenge_path(attempt.challenge))%><br/>(<%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: attempt.challenge.id)), :method => :patch) %>)
         </p>
     <%end%>
 </ul>
@@ -48,7 +48,7 @@
   <ul>
       <%@user.completed_challenges.each do |challenge|%>
           <p>
-            <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+            <%=link_to(challenge.name, challenge_path(challenge))%>
           </p>
     <%end%>
   </ul>
@@ -63,7 +63,7 @@
   <ul>
     <%@user.completed_achievements.each do |achievement|%>
       <p>
-        <li><%=link_to(achievement.name, achievement_path(achievement))%></li>
+        <%=link_to(achievement.name, achievement_path(achievement))%>
       </p>
     <%end%>  
   </ul>
