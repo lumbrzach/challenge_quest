@@ -1,3 +1,14 @@
+<%if @challenge.errors.present?%>
+    <h2>The following errors were present that prevented this action from occurring:</h2>
+    <ul>
+        <%@challenge.errors.full_messages.each do |msg|%>
+        <li style="color: red"><%=msg%></li>
+        <%end%>
+    </ul>
+    <h2>Please make the relevant changes and try again!</h2>
+<%end%>
+
+
 <%=form_for @challenge do |f|%>
 
 <div id="formheader">
