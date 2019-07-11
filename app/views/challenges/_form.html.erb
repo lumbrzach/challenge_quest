@@ -1,9 +1,27 @@
 <%=form_for @challenge do |f|%>
-<%=f.label :name%>
-<%=f.text_field :name%><br/>
-<%=f.label :category%>
-<%=f.text_field :category%><br/>
-<%=f.label :description%>
-<%=f.text_area :description%><br/>
-<%=f.submit%>
+
+<div id="formheader">
+    <%=f.label :name%>
+</div>
+<div id="formcontent">
+    <%=f.text_field :name%>
+</div>
+
+<div id="formheader">
+    <%=f.label :category%>
+</div>
+<div id="formcontent">
+    <%=f.text_field :category%>
+</div>
+
+<div id="formheader">
+    <%=f.label :description%>
+</div>
+<div id="formcontent">
+    <%=f.text_area :description, col: "40", row: "10"%>
+</div>
+
+<div id="formheader">
+    <%=f.submit%>
+</div>
 <%end%>

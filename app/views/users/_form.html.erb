@@ -1,15 +1,42 @@
-<h1>Create a New Profile</h1>
+
 
 <%=form_for @user do |f|%>
-<%=f.label :name%>
-<%=f.text_field :name%><br/>
-<%=f.label :bio%>
-<%=f.text_area :bio%><br/>
-<%=f.label :username%>
-<%=f.text_field :username%><br/>
-<%=f.label :password%>
-<%=f.password_field :password%><br/>
-<%=f.label "Picture"%>
-<%=f.text_field :image, placeholder: "Please put a URl link to your photo here"%><br/>
-<%=f.submit%>
+<div id="formheader">
+    <%=f.label :name%>
+</div>
+<div id="formcontent">
+    <%=f.text_field :name%>
+</div>
+
+<div id="formheader">
+    <%=f.label :bio%>
+</div>
+<div id="formcontent">
+    <%=f.text_area :bio, cols: "40", rows: "10"%>
+</div>
+
+<div id="formheader">
+    <%=f.label :username%>
+</div>
+<div id="formcontent">
+    <%=f.text_field :username%>
+</div>
+
+<div id="formheader">
+    <%=f.label :password%>
+</div>
+<div id="formcontent">
+    <%=f.password_field :password%>
+</div>
+
+<div id="formheader">
+    <%=f.label "Picture"%>
+</div>
+<div id="formcontent">
+    <%=f.text_field :image, placeholder: "Please put a URl link to your photo here"%>
+</div>
+
+<div id="formheader">
+    <%=f.submit%>
+</div>
 <%end%>

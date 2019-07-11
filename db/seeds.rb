@@ -84,21 +84,25 @@ cat = User.create(
 
 
 try1 = Attempt.create(
+    status: "Accepted",
     user_id: dylan.id,
     challenge_id: c5.id
 )
 
 try2 = Attempt.create(
+    status: "Accepted",
     user_id: dylan.id,
     challenge_id: c3.id
 )
 
 try3 = Attempt.create(
+    status: "Accepted",
     user_id: zach.id,
     challenge_id: c5.id
 )
 
 try4 = Attempt.create(
+    status: "Accepted",
     user_id: zach.id,
     challenge_id: c2.id
 )
