@@ -11,7 +11,7 @@
 <h2>Attempted Challenges: </h2>
 <ul>
     <%@user.accepted_challenges.each do |challenge|%>
-        <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+        <li><%=link_to(challenge.name, challenge_path(challenge))%><br/><%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %></li>
     <%end%>
 </ul>
 
@@ -24,7 +24,7 @@
 
 
 
-<h2>Your Friends:</h2>
+<h2>Friends:</h2>
 <ul>
   <% @user.relationships.each do |relationship| %>
   <li>
@@ -34,7 +34,7 @@
   <% end %>  
 </ul>
 
-<%= link_to("Edit Your Profile", edit_user_path)%><br/>
+<%= link_to("Edit Profile", edit_user_path)%><br/>
 <%= link_to("List of All Challenges", challenges_path)%><br/>
 <%= link_to("List of All Achievements", achievements_path)%><br/>
 <%= link_to("List of All Questers", users_path)%><br/>
