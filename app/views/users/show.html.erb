@@ -1,41 +1,89 @@
-<h1><%=@user.name.titleize%>'s Challenge Quest Profile</h1>
-<br/>
-<img src= "<%=@user.image%>" width="auto" height="200px">
+<div id="ProfilePage">
+  <%=@user.name.titleize%>'s Challenge Quest Profile
+</div>
 
-<h2>Username: </h2>
-<h3><%=@user.username%></h3>
+<div id="ProfilePicture">
+  <img src= "<%=@user.image%>" width="auto" height="400px">
+</div>
 
-<h2>Bio: </h2>
-<h3><%=@user.bio%></h3>
+<div id="header">
+  Username: 
+</div>
 
-<h2>Attempted Challenges: </h2>
+<div id="content">
+  <%=@user.username%>
+</div>
+
+<div id="header">
+  Bio: 
+</div>
+
+<div id="content_bio">
+  <%=@user.bio%>
+</div>
+
+<div id="header">
+  Attempted Challenges: 
+</div>
+
+<div id="content_special">
 <ul>
     <%@user.accepted_challenges.each do |challenge|%>
-        <li><%=link_to(challenge.name, challenge_path(challenge))%><br/><%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %></li>
+        <p>
+          <li><%=link_to(challenge.name, challenge_path(challenge))%><br/><%= link_to("Mark Challenge as Complete", attempt_path(@user.attempts.find_by(challenge_id: challenge.id)), :method => :patch) %></li>
+        </p>
     <%end%>
 </ul>
+</div>
 
-<h2>Completed Challenges: </h2>
-<ul>
-    <%@user.completed_challenges.each do |challenge|%>
-        <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+<div id="header">
+  Completed Challenges:
+</div>
+
+<div id="content_special">
+  <ul>
+      <%@user.completed_challenges.each do |challenge|%>
+          <p>
+            <li><%=link_to(challenge.name, challenge_path(challenge))%></li>
+          </p>
     <%end%>
-</ul>
+  </ul>
+</div>
 
+<div id="header">
+  Completed Achievements:
+</div>
 
-
-<h2>Friends:</h2>
-<ul>
-  <% @user.relationships.each do |relationship| %>
-  <li>
-    <%= link_to(relationship.friend.username, user_path(relationship.friend.id)) %><br/>
+<div id="content_special">
+  <ul>
     
-    (<%= link_to "Remove Friend", relationship, :method => :delete %>)
-  </li>
-  <% end %>  
-</ul>
+  </ul>
+</div>
+<div id="achievements">
+  <%= button_to("List of All Achievements", achievements_path, :method => :get)%>
+</div>
 
-<%= link_to("Edit Profile", edit_user_path)%><br/>
-<%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("List of All Achievements", achievements_path)%><br/>
-<%= link_to("List of All Questers", users_path)%><br/>
+<div id="header">
+  Friends:
+</div>
+
+<div id="content_special">
+  <ul>
+    <% @user.relationships.each do |relationship| %>
+    <p>
+      <%= link_to(relationship.friend.username, user_path(relationship.friend.id)) %>
+    
+      <div id="friends">
+        <%= button_to "Remove Friend", relationship, :method => :delete %>
+      </div>
+    </p>
+  <% end %>
+  </ul>
+</div>
+<div id="achievements">
+      <%= button_to("List of All Questers", users_path, :method => :get)%>
+    </div>
+
+<div id="edit">
+  <%= button_to("Edit Profile", edit_user_path, :method => :get)%></p>
+</div>
