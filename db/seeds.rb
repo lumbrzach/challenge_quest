@@ -35,27 +35,32 @@ a5 = Achievement.create(
 
 c1 = Challenge.create(
     name: "Furry blue Hedgehog",
-    description: "Run a mile within 6 minutes or less."
+    description: "Run a mile within 6 minutes or less.",
+    category: "Sports"
 )
 
 c2 = Challenge.create(
     name: "Nathan would be proud",
-    description: "Eat 20 hotdogs within the span of 20 minutes."
+    description: "Eat 20 hotdogs within the span of 20 minutes.",
+    category: "Food"
 )
 
 c3 = Challenge.create(
     name: "I AM MACHINE",
-    description: "Stay awake for 24 hours straight."
+    description: "Stay awake for 24 hours straight.",
+    category: "General"
 )
 
 c4 = Challenge.create(
     name: "KOBE",
     description: "Make 30 straight free throws."
+    category: "Sports"
 )
 
 c5 = Challenge.create(
     name: "Paranormal Specialist",
-    description: "Spend the night at a nortorious paranormal location."
+    description: "Spend the night at a nortorious paranormal location.",
+    category: "General"
 )
 
 dylan = User.create(
@@ -108,23 +113,18 @@ try4 = Attempt.create(
 )
 
 user_acheivement1 = UserAchievement.create(
-    user_id: dylan.id, 
-    achievement_id: a2.id
+    user_id: cat.id, 
+    achievement_id: a1.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: dylan.id, 
-    achievement_id: a4.id
-)
-
-user_acheivement1 = UserAchievement.create(
-    user_id: zach.id,
     achievement_id: a1.id
 )
 
 user_acheivement1 = UserAchievement.create(
     user_id: zach.id,
-    achievement_id: a3.id
+    achievement_id: a1.id
 )
 
 Relationship.create(
