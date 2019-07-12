@@ -3,9 +3,8 @@
 
 <ul>
     <%@users.each do |user|%>
-        <li><strong><%=link_to(user.username, user_path(user))%></strong><br/><%= link_to "Add Friend", relationships_path(:friend_id => user), :method => :post %></li>
+            <img src="<%=user.image%>" width= "auto" height= "300px">
+        <p><strong><%=link_to(user.username, user_path(user))%>
+            </strong><%= button_to("Add Friend", relationships_path(:friend_id => user), :method => :post) %></p>
     <%end%>
 </ul>
-
-<%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("Your Profile", user_path(current_user))%><br/>

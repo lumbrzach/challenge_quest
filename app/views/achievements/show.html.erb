@@ -1,13 +1,18 @@
-<h1>Achievement Show Page</h1>
+<div id="ProfilePage">
+    Achievement Information
+</div>
 
-<h2>Name: </h2>
-<h3><%=@achievement.name%></h3>
+<div id="header">
+    Name:
+</div>
+<div id="content">
+    <%=@achievement.name%>
+</div>
 
-<h2>Description: </h2>
-<h3><%=@achievement.description%></h3>
+<div id="header">
+    Description:
+</div> 
+<div id="content">
+    <%=@achievement.description%>
+</div>
 
-
-
-<%= link_to("Edit achievement", edit_achievement_path)%><br/>
-<%= link_to("List of All Achievements", achievements_path)%><br/>
-<%= link_to("Achievement Quest Homepage", "/")%><br/>
