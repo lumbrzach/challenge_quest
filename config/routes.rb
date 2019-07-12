@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :challenges, except: [:edit, :update, :destroy]
-  resources :attempts, except: [:edit, :update, :destroy]
+  resources :challenges, except: [:destroy]
+  resources :attempts, except: [:destroy]
   resources :users, except: [:destroy]
   resources :relationships
   resources :user_achievements, except: [:destroy]

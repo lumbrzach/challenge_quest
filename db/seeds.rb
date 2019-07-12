@@ -53,7 +53,7 @@ c3 = Challenge.create(
 
 c4 = Challenge.create(
     name: "KOBE",
-    description: "Make 30 straight free throws."
+    description: "Make 30 straight free throws.",
     category: "Sports"
 )
 
