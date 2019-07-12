@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :challenges
-  resources :attempts
-  resources :users
+  resources :challenges, except: [:edit, :update, :destroy]
+  resources :attempts, except: [:edit, :update, :destroy]
+  resources :users, except: [:destroy]
   resources :relationships
-  resources :user_achievements
-  resources :achievements
+  resources :user_achievements, except: [:destroy]
+  resources :achievements, except: [:destroy]
   get '/', to: 'sessions#new'
   post '/', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
