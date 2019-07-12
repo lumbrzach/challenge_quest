@@ -1,15 +1,24 @@
-<h1>Individual Challenge Page</h1>
+<div id="ProfilePage">
+    Challenge Information
+</div>
 
-<h2>Name: </h2>
-<h3><%=@challenge.name%></h3>
+<div id="header">
+    Name:
+</div> 
+<div id="content">
+    <%=@challenge.name%>
+</div>
 
-<h2>Category: </h2>
-<h3><%=@challenge.category%></h3>
+<div id="header">
+    Category:
+</div>
+<div id="content">
+    <%=@challenge.category%>
+</div>
 
-<h2>Description: </h2>
-<h3><%=@challenge.description%></h3>
-
-
-<%= link_to("Accept Challenge", attempts_path(:challenge_id => @challenge), :method => :post) %><br/>
-<%= link_to("List of All Challenges", challenges_path)%><br/>
-<%= link_to("Profile Page", user_path(current_user))%><br/>
+<div id="header">
+    Description:
+</div>
+<div id="content">
+    <%=@challenge.description%>
+</div>
